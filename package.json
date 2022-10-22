@@ -1,7 +1,7 @@
 {
-  "name": "my-vue-app",
+  "name": "instagram-hashtag-generator",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "sass": "^1.55.0",
     "vue": "^3.2.37"
   },
   "devDependencies": {
