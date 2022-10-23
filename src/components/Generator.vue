@@ -61,9 +61,24 @@ export default {
           }, {
             question: '是哪種食物？',
             options: [
+              {
+                emoji: '🍜', name: '拉麵', value: ['ramen', '拉麵', '拉麺', 'noodles', 'ラーメン', 'ramennoodles', 'soup'],
+                children: [{
+                  question: '拉麵！',
+                  options: [
+                    { name: '家系', value: ['家系'] },
+                    { name: '二郎', value: ['二郎'] },
+                    { name: '雞白湯', value: ['雞白湯'] },
+                    { name: '豚骨', value: ['豚骨'] },
+                    { name: '魚介', value: ['魚介'] },
+                    { name: '醬油', value: ['醬油'] },
+                    { name: '叉燒', value: ['叉燒'] },
+                    { name: '溏心蛋', value: ['味玉'] },
+                  ]
+                }]
+              },
               { emoji: '🍣', name: '壽司', value: ['sushi', '壽司'] },
               { emoji: '🥞', name: '鬆餅', value: ['pancake', '蓬蓬鬆餅', '鬆餅', 'パンケーキ', 'pancakes', 'teampancake', 'pancakeday'] },
-              { emoji: '🍜', name: '拉麵', value: ['ramen', '拉麵', '拉麺', 'noodles', 'ラーメン', 'ramennoodles', 'soup'] },
               { emoji: '🍕', name: '披薩', value: ['pizza', 'pizzagram', 'pizzeria'] },
               { emoji: '🍔', name: '漢堡', value: ['burger', '漢堡', '美式餐廳', 'hamburger', 'burgers'] },
               { emoji: '🍟', name: '薯條', value: ['fries', 'frenchfries', '炸物', '薯條'] },
@@ -116,13 +131,15 @@ export default {
       tags.push(this.selected)
 
       let includeFood = this.selected.includes('美食')
+      let includeRamens = this.selected.includes('拉麵')
       Object.entries(this.metro).flat(2).forEach(x => {
         if (this.selected.includes(x)) {
+          if (includeRamens) {
+            tags.push(`${x}拉麵`)
+          }
           if (includeFood) {
-            tags.push('捷運景點')
             tags.push(`${x}美食`)
           } else {
-            tags.push('捷運景點')
             tags.push(`${x}景點`)
           }
         }
