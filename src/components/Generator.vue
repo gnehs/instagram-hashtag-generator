@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <CategorySelector :data="selector" v-model="selected" />
-    {{selected}}
     <div class="block">
       <div class="block-title">小精靈結果（{{result.split('#').length-1}}）</div>
       <p class="result">
