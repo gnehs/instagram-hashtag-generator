@@ -104,13 +104,24 @@ export default {
       tags.push(this.selected)
 
       let includeFood = this.selected.includes('美食')
+      Object.entries(this.metro).flat(2).forEach(x => {
+        if (this.selected.includes(x)) {
+          if (includeFood) {
+            tags.push('捷運景點')
+            tags.push(`${x}美食`)
+          } else {
+            tags.push('捷運景點')
+            tags.push(`${x}景點`)
+          }
+        }
+      })
       if (tags.length < 30) {
         // 熱門
         tags.push(['followback', 'life', 'yolo', 'happy', 'instalike', 'like4like', 'likeforlike'].sort(() => Math.random() - 0.5))
         // 較不熱門
         tags.push(['likeforfollow', 'followme', 'follow', 'me', 'lifestyle', 'follow4follow', 'followforfollow', 'tagsforlikes', 'f4f', 'instapic'].sort(() => Math.random() - 0.5))
       }
-      tags = tags.flat(9).filter(x => x != '').slice(0, 30).sort()
+      tags = [...new Set(tags.flat(1))].filter(x => x != '').slice(0, 30).sort()
 
       return '#' + tags.join(' #')
     }
