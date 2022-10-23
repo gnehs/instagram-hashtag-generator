@@ -2,7 +2,7 @@
   <div class="container">
     <transition name="slide-down">
       <div class="copied" v-if="showCopied">
-        📄 已複製
+        ✅ 已複製
       </div>
     </transition>
     <transition-group name="flip-list" style="position: relative" tag="div">
