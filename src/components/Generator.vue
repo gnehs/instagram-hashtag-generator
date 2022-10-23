@@ -160,11 +160,10 @@ export default {
             tags.push(`台湾グルメ`)
             tags.push(`台北グルメ`)
             tags.push(`${x}美食`)
-          } else {
-            tags.push(`${x}景點`)
           }
         }
       })
+      tags = tags.sort(x => Math.random() - 0.5)
       if (tags.length < 30) {
         // 熱門
         tags.push(['followback', 'life', 'yolo', 'happy', 'instalike', 'like4like', 'likeforlike'].sort(() => Math.random() - 0.5))

@@ -69,7 +69,7 @@ export default {
         }
         this.value = res
       } else {
-        this.value = [...this.value, ...item.value.sort(x => Math.random() - 0.5).slice(0, 3)]
+        this.value = [...this.value, ...item.value]
       }
     }
   }
