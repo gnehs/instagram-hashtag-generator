@@ -46,24 +46,28 @@ export default {
     }
   },
   methods: {
-    toggleTag(tag) {
-      tag = structuredClone(tag)
-      if (this.value.includes(tag.value[0])) {
+    toggleTag(item) {
+      item = structuredClone(item)
+      if (this.value.includes(item.value[0])) {
         let res = this.value
-        res = res.filter(x => !tag.value.includes(x))
+        res = res.filter(x => !item.value.flat(2).includes(x))
         // clear children
-        function removeChildren(tag) {
-          if (tag.children) {
-            for (let child of tag.children) {
-              res = res.filter(x => !child.options.map(y => y.value).flat(2).includes(x))
-              removeChildren(child)
-            }
+        if (item.children) {
+          function removeChildren(options) {
+            res = res.filter(x => !options.map(x => x.value).flat(2).includes(x))
+            options.map(x => {
+              if (x.children) {
+                x.children.map(y => {
+                  removeChildren(y.options)
+                })
+              }
+            })
           }
+          item.children.map(x => removeChildren(x.options))
         }
-        removeChildren(tag)
         this.value = res
       } else {
-        this.value = [...this.value, ...tag.value]
+        this.value = [...this.value, ...item.value]
       }
     }
   }
