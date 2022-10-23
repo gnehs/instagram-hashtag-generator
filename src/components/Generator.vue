@@ -60,7 +60,7 @@ export default {
             question: '是哪一餐？',
             options: [
               { emoji: '🌅', name: '早餐', value: ['breakfast', '早餐', '早午餐'] },
-              { emoji: '🌇', name: '午餐', value: ['lunch', '午餐'] },
+              { emoji: '🌇', name: '午餐', value: ['lunch', '午餐', 'ランチ'] },
               { emoji: '🌃', name: '晚餐', value: ['dinner', '晚餐'] },
               { emoji: '🌃', name: '宵夜', value: ['宵夜', '夜食'] },
             ]
@@ -68,14 +68,14 @@ export default {
             question: '是哪種食物？',
             options: [
               {
-                emoji: '🍜', name: '拉麵', value: ['ramen', '拉麵', '拉麺', 'noodles', 'ラーメン', 'ramennoodles', 'soup'],
+                emoji: '🍜', name: '拉麵', value: ['🍜', 'ramen', '拉麵', '拉麺', 'noodles', 'ラーメン', 'ramennoodles', 'soup'],
                 children: [{
                   question: '拉麵！',
                   options: [
                     { name: '家系', value: ['家系'] },
                     { name: '二郎', value: ['二郎'] },
-                    { name: '雞白湯', value: ['雞白湯'] },
-                    { name: '豚骨', value: ['豚骨'] },
+                    { name: '雞白湯', value: ['雞白湯', '鶏白湯', '鶏白湯ラーメン'] },
+                    { name: '豚骨', value: ['豚骨', '豚骨ラーメン'] },
                     { name: '魚介', value: ['魚介'] },
                     { name: '醬油', value: ['醬油'] },
                     { name: '叉燒', value: ['叉燒'] },
@@ -144,6 +144,8 @@ export default {
             tags.push(`${x}拉麵`)
           }
           if (includeFood) {
+            tags.push(`台湾グルメ`)
+            tags.push(`台北グルメ`)
             tags.push(`${x}美食`)
           } else {
             tags.push(`${x}景點`)
