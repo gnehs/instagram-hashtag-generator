@@ -42,24 +42,6 @@ export default defineConfig({
         ],
         lang: 'zh-TW',
       },
-      workbox: {
-        runtimeCaching: [
-          {
-            urlPattern: /(.*?)\.(js|css|ts)/,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'js-css-cache',
-            },
-          },
-          {
-            urlPattern: /(.*?)\.(png|jpe?g|svg|gif|bmp|psd|tiff|tga|eps)/,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'image-cache',
-            },
-          },
-        ],
-      },
     })
   ]
 })
