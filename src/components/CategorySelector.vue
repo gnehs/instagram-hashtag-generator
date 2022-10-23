@@ -1,25 +1,27 @@
 <template>
-  <template v-for="item of data" :key="item.question">
-    <div class="block">
-      <div class="block-title">{{item.question}} </div>
-      <div class="tags">
-        <div
-          class="tag"
-          v-for="tag of item.options"
-          :key="tag.name"
-          @click="toggleTag(tag)"
-          :class="{selected: value.includes(tag.value[0])}">
-          <div class="icon" v-if="tag.emoji">
-            <span>{{tag.emoji}}</span>
+  <transition-group name="flip-list" style="position: relative" tag="div">
+    <template v-for="item of data" :key="item.question">
+      <div class="block">
+        <div class="block-title">{{item.question}} </div>
+        <div class="tags">
+          <div
+            class="tag"
+            v-for="tag of item.options"
+            :key="tag.name"
+            @click="toggleTag(tag)"
+            :class="{selected: value.includes(tag.value[0])}">
+            <div class="icon" v-if="tag.emoji">
+              <span>{{tag.emoji}}</span>
+            </div>
+            {{tag.name}}
           </div>
-          {{tag.name}}
         </div>
       </div>
-    </div>
-    <template v-for="tag of item.options.filter(x=>x.children)" :key="tag.name">
-      <CategorySelector v-if="value.includes(tag.value[0])" :data="tag.children" v-model="value" />
+      <template v-for="tag of item.options.filter(x=>x.children)" :key="tag.name">
+        <CategorySelector v-if="value.includes(tag.value[0])" :data="tag.children" v-model="value" />
+      </template>
     </template>
-  </template>
+  </transition-group>
 </template>
 
 <script>

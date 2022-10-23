@@ -5,3 +5,24 @@ body
 .container
   width: min(calc(100vw - 32px), 768px)
   margin: 0 auto
+
+
+.slide-down-enter-active, .slide-down-leave-active
+  transition: all 0.25s ease
+.slide-down-enter-from, .slide-down-leave-to
+  transform: translateY(-100%)
+  opacity: 0
+
+.flip-list-move,
+.flip-list-enter-active,
+.flip-list-leave-active
+  transition: .25s ease
+  transition-property: opacity, transform, filter
+.flip-list-leave-active
+  max-height: 0
+  margin: -4px 0
+.flip-list-enter-from,.flip-list-leave-to
+  opacity: 0
+  filter: grayscale(100%)
+  transform: scaleY(0) scaleX(0.4)
+  transform-origin: center bottom

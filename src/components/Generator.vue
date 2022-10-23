@@ -5,23 +5,28 @@
         📄 已複製
       </div>
     </transition>
-    <CategorySelector :data="selector" v-model="selected" />
-    <div class="block">
-      <div class="block-title">小精靈結果（{{result.split('#').length-1}}）</div>
-      <p class="result">
-        {{result}}
-      </p>
-      <div class="copy-btn" @click="copyResult">
-        複製
+    <transition-group name="flip-list" style="position: relative" tag="div">
+      <CategorySelector :data="selector" v-model="selected" />
+      <div class="block">
+        <div class="block-title">小精靈結果（{{result.split('#').length-1}}）</div>
+        <p class="result">
+          {{result}}
+        </p>
+        <div class="copy-btn" @click="copyResult">
+          複製
+        </div>
       </div>
-    </div>
+      <Footer />
+    </transition-group>
   </div>
 </template>
 <script>
 import CategorySelector from './CategorySelector.vue'
+import Footer from './Footer.vue'
 export default {
   components: {
-    CategorySelector
+    CategorySelector,
+    Footer
   },
   data() {
     return {
@@ -214,9 +219,4 @@ export default {
   padding: 12px 0
   box-shadow: 0 2.5px 10px rgba(0, 0, 0, 0.2)
   border-radius: 100em
-.slide-down-enter-active, .slide-down-leave-active
-  transition: all 0.25s ease
-.slide-down-enter-from, .slide-down-leave-to
-  transform: translateY(-100%)
-  opacity: 0
 </style>
