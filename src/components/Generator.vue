@@ -55,7 +55,7 @@ export default {
               { emoji: '🍜', name: '拉麵', value: ['ramen', '拉麵', '拉麺', 'noodles', 'ラーメン', 'ramennoodles', 'soup'] },
               { emoji: '🍕', name: '披薩', value: ['pizza', 'pizzagram', 'pizzeria'] },
               { emoji: '🍔', name: '漢堡', value: ['burger', '漢堡', '美式餐廳', 'hamburger'] },
-              { emoji: '🍟', name: '薯條', value: ['fries'], '炸物', '薯條' },
+              { emoji: '🍟', name: '薯條', value: ['fries', '炸物', '薯條'] },
               { emoji: '🍦', name: '冰淇淋', value: ['ice', '冰淇淋', '甜'] },
               // { emoji: '🍫', name: '巧克力', value: ['chocolate'] },
               // { emoji: '🍬', name: '糖果', value: ['candy'] },
