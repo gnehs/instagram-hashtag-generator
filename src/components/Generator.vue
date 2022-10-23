@@ -25,8 +25,13 @@
       <CategorySelector :data="taipeiMetroStation" v-model="taipeiMetroStationSelected" />
     </div>
     <div class="block">
-      <div class="block-title">小精靈結果（{{result.length}}）</div>
-      {{'#'+result.join(' #')}}
+      <div class="block-title">小精靈結果（{{result.split('#').length-1}}）</div>
+      <p class="result">
+        {{result}}
+      </p>
+      <div class="copy-btn" @click="copyResult">
+        複製
+      </div>
     </div>
   </div>
 </template>
@@ -41,34 +46,34 @@ export default {
       theme: [
         { emoji: '🍰', name: '食物', value: 'food' },
         { emoji: '🧋', name: '飲料', value: 'drink' },
-        { emoji: '😀', name: '自拍', value: 'selfie' },
-        { emoji: '🌅', name: '風景', value: 'landscape' },
-        { emoji: '🦭', name: '動物', value: 'animal' },
-        { emoji: '🏢', name: '建築', value: 'architecture' },
+        // { emoji: '😀', name: '自拍', value: 'selfie' },
+        // { emoji: '🌅', name: '風景', value: 'landscape' },
+        // { emoji: '🦭', name: '動物', value: 'animal' },
+        // { emoji: '🏢', name: '建築', value: 'architecture' },
       ],
       themeSelected: [],
       food: [
         { emoji: '🍣', name: '壽司', value: ['sushi', '壽司'] },
         { emoji: '🥞', name: '鬆餅', value: ['pancake', '蓬蓬鬆餅', '鬆餅', 'パンケーキ', 'pancakes'] },
         { emoji: '🍜', name: '拉麵', value: ['ramen', '拉麵', '拉麺', 'noodles', 'ラーメン', 'ramennoodles', 'soup'] },
-        { emoji: '🍕', name: '披薩', value: 'pizza' },
-        { emoji: '🍔', name: '漢堡', value: 'burger' },
-        { emoji: '🍟', name: '薯條', value: 'fries' },
-        { emoji: '🍦', name: '冰淇淋', value: 'ice' },
-        { emoji: '🍫', name: '巧克力', value: 'chocolate' },
-        { emoji: '🍬', name: '糖果', value: 'candy' },
-        { emoji: '🥗', name: '沙拉', value: 'salad' },
-        { emoji: '🥪', name: '三明治', value: 'sandwich' },
-        { emoji: '🍪', name: '餅乾', value: 'cookie' },
-        { emoji: '🍩', name: '甜甜圈', value: 'doughnut' },
-        { emoji: '🧁', name: '蛋糕', value: 'cake' },
-        { emoji: '🍿', name: '爆米花', value: 'popcorn' },
+        // { emoji: '🍕', name: '披薩', value: 'pizza' },
+        // { emoji: '🍔', name: '漢堡', value: 'burger' },
+        // { emoji: '🍟', name: '薯條', value: 'fries' },
+        // { emoji: '🍦', name: '冰淇淋', value: 'ice' },
+        // { emoji: '🍫', name: '巧克力', value: 'chocolate' },
+        // { emoji: '🍬', name: '糖果', value: 'candy' },
+        // { emoji: '🥗', name: '沙拉', value: 'salad' },
+        // { emoji: '🥪', name: '三明治', value: 'sandwich' },
+        // { emoji: '🍪', name: '餅乾', value: 'cookie' },
+        // { emoji: '🍩', name: '甜甜圈', value: 'doughnut' },
+        // { emoji: '🧁', name: '蛋糕', value: 'cake' },
+        // { emoji: '🍿', name: '爆米花', value: 'popcorn' },
       ],
       foodSelected: [],
       foodTime: [
         { emoji: '🌅', name: '早餐', value: ['breakfast', '早餐', '早午餐'] },
-        { emoji: '🌇', name: '午餐', value: ['lunch', '午餐', 'ランチ'] },
-        { emoji: '🌃', name: '晚餐', value: ['dinner', '晚餐', '夕食'] },
+        { emoji: '🌇', name: '午餐', value: ['lunch', '午餐'] },
+        { emoji: '🌃', name: '晚餐', value: ['dinner', '晚餐'] },
         { emoji: '🌃', name: '宵夜', value: ['宵夜', '夜食'] },
       ],
       foodTimeSelected: [],
@@ -139,16 +144,22 @@ export default {
         if (this.themeSelected.includes('food')) {
           tags.push(this.taipeiMetroStationSelected.map(x => x + '美食'))
           tags.push(`台北美食`)
-          if (station)
-            tags.push(`${station}美食`)
         }
       }
       if (tags.length < 30) {
-        tags.push(['followback', 'life', 'instalike', 'like4like', 'likeforlike', 'yolo'].sort(() => Math.random() - 0.5))
+        // 熱門
+        tags.push(['followback', 'life', 'yolo', 'happy', 'instalike', 'like4like', 'likeforlike'].sort(() => Math.random() - 0.5))
+        // 較不熱門
+        tags.push(['likeforfollow', 'followme', 'follow', 'me', 'lifestyle', 'follow4follow', 'followforfollow', 'tagsforlikes', 'f4f', 'instapic'].sort(() => Math.random() - 0.5))
       }
       tags = tags.flat(2).filter(x => x != '').slice(0, 30).sort()
 
-      return tags
+      return '#' + tags.join(' #')
+    }
+  },
+  methods: {
+    async copyResult() {
+      await navigator.clipboard.writeText(this.result)
     }
   }
 }
@@ -156,11 +167,26 @@ export default {
 
 <style lang="sass">
 .block
-  border: 1px solid rgba(0, 0, 0, 0.05)
-  border-radius: 5px
+  border: 1px solid rgba(0, 0, 0, 0.1)
+  border-radius: 4px
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05)
   padding: 10px
-  margin: 5px 0
+  margin: 8px 0
   .block-title
     font-weight: bold
     margin-bottom: 4px
+  .result
+    line-height: 1.5
+  .copy-btn
+    text-align: center
+    border-radius: 5px
+    padding: 5px 10px
+    background-color: rgba(0, 0, 0, 0.05)
+    cursor: pointer
+    border: 1px solid transparent
+    &:hover
+      border: 1px solid rgba(0, 0, 0, 0.05)
+      background-color: rgba(0, 0, 0, 0.075)
+    &:active
+      background-color: rgba(0, 0, 0, 0.1)
 </style>
