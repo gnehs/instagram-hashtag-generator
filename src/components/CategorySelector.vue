@@ -9,7 +9,7 @@
             v-for="tag of item.options"
             :key="tag.name"
             @click="toggleTag(tag)"
-            :class="{selected: value.includes(tag.value[0])}">
+            :class="{selected: tag.value.some(x=>value.includes(x))}">
             <div class="icon" v-if="tag.emoji">
               <span>{{tag.emoji}}</span>
             </div>
@@ -18,7 +18,7 @@
         </div>
       </div>
       <template v-for="tag of item.options.filter(x=>x.children)" :key="tag.name">
-        <CategorySelector v-if="value.includes(tag.value[0])" :data="tag.children" v-model="value" />
+        <CategorySelector v-if="tag.value.some(x=>value.includes(x))" :data="tag.children" v-model="value" />
       </template>
     </template>
   </transition-group>
@@ -69,7 +69,7 @@ export default {
         }
         this.value = res
       } else {
-        this.value = [...this.value, ...item.value]
+        this.value = [...this.value, ...item.value.sort(x => Math.random() - 0.5).slice(0, 3)]
       }
     }
   }
