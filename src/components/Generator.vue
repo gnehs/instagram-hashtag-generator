@@ -216,6 +216,7 @@ export default {
   width: 120px
   background-color: rgba(255,255,255,0.9)
   backdrop-filter: blur(10px)
+  -webkit-backdrop-filter: blur(10px)
   text-align: center
   padding: 12px 0
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1)
