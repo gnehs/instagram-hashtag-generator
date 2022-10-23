@@ -1,12 +1,25 @@
 <template>
-  <div class="tags">
-    <div class="tag" v-for="tag of data" @click="toggleTag(tag.value)" :class="{selected: modelValue.includes(tag.value)}">
-      <div class="icon">
-        <span>{{tag.emoji}}</span>
+  <template v-for="item of data" :key="item.question">
+    <div class="block">
+      <div class="block-title">{{item.question}} </div>
+      <div class="tags">
+        <div
+          class="tag"
+          v-for="tag of item.options"
+          :key="tag.name"
+          @click="toggleTag(tag)"
+          :class="{selected: value.includes(tag.value[0])}">
+          <div class="icon" v-if="tag.emoji">
+            <span>{{tag.emoji}}</span>
+          </div>
+          {{tag.name}}
+        </div>
       </div>
-      {{tag.name}}
     </div>
-  </div>
+    <template v-for="tag of item.options.filter(x=>x.children)" :key="tag.name">
+      <CategorySelector v-if="value.includes(tag.value[0])" :data="tag.children" v-model="value" />
+    </template>
+  </template>
 </template>
 
 <script>
@@ -20,26 +33,24 @@ export default {
       type: Array,
       default: () => [],
     },
-    radio: {
-      type: Boolean,
-      default: false,
-    },
   },
   emits: ['update:modelValue'],
+  computed: {
+    value: {
+      get() {
+        return this.modelValue
+      },
+      set(value) {
+        this.$emit('update:modelValue', value)
+      }
+    }
+  },
   methods: {
     toggleTag(tag) {
-      if (this.radio) {
-        if (this.modelValue.includes(tag)) {
-          this.$emit('update:modelValue', [])
-        } else {
-          this.$emit('update:modelValue', [tag])
-        }
+      if (this.value.includes(tag.value[0])) {
+        this.value = this.value.filter(x => !tag.value.includes(x))
       } else {
-        if (this.modelValue.includes(tag)) {
-          this.$emit('update:modelValue', this.modelValue.filter((t) => t !== tag))
-        } else {
-          this.$emit('update:modelValue', [...this.modelValue, tag])
-        }
+        this.value = [...this.value, ...tag.value]
       }
     }
   }

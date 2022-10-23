@@ -13,7 +13,7 @@ export default defineConfig({
         name: 'Instagram 標籤產生器',
         short_name: 'Instagram 標籤產生器',
         description: '讓小精靈自動推薦給你適合的標籤',
-        theme_color: '#ffffff',
+        theme_color: '#f2f2f2',
         icons: [
           {
             src: '/icon.svg',
