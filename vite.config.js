@@ -12,7 +12,7 @@ export default defineConfig({
       manifest: {
         name: 'Instagram 標籤產生器',
         short_name: 'Instagram 標籤產生器',
-        description: '選擇選項後，小精靈會自動推薦給你適合的標籤。',
+        description: '讓小精靈自動推薦給你適合的標籤',
         theme_color: '#ffffff',
         icons: [
           {
