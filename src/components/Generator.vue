@@ -208,16 +208,17 @@ export default {
       background-color: rgba(0, 0, 0, 0.1)
 .copied
   position: fixed
-  top: 16px
+  top: 8px
   left: 0
   right: 0
   margin: auto
   display: inline-block
   width: 120px
-  background-color: #fff
+  background-color: rgba(255,255,255,0.9)
+  backdrop-filter: blur(10px)
   text-align: center
   padding: 12px 0
-  box-shadow: 0 2.5px 10px rgba(0, 0, 0, 0.2)
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1)
   border-radius: 100em
   z-index: 999
 </style>
