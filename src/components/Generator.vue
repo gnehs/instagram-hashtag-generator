@@ -54,12 +54,12 @@ export default {
               { emoji: '🥞', name: '鬆餅', value: ['pancake', '蓬蓬鬆餅', '鬆餅', 'パンケーキ', 'pancakes'] },
               { emoji: '🍜', name: '拉麵', value: ['ramen', '拉麵', '拉麺', 'noodles', 'ラーメン', 'ramennoodles', 'soup'] },
               { emoji: '🍕', name: '披薩', value: ['pizza', 'pizzagram', 'pizzeria'] },
-              // { emoji: '🍔', name: '漢堡', value: ['burger'] },
-              // { emoji: '🍟', name: '薯條', value: ['fries'] },
-              // { emoji: '🍦', name: '冰淇淋', value: ['ice'] },
+              { emoji: '🍔', name: '漢堡', value: ['burger', '漢堡', '美式餐廳', 'hamburger'] },
+              { emoji: '🍟', name: '薯條', value: ['fries'], '炸物', '薯條' },
+              { emoji: '🍦', name: '冰淇淋', value: ['ice', '冰淇淋', '甜'] },
               // { emoji: '🍫', name: '巧克力', value: ['chocolate'] },
               // { emoji: '🍬', name: '糖果', value: ['candy'] },
-              // { emoji: '🥗', name: '沙拉', value: ['salad'] },
+              { emoji: '🥗', name: '沙拉', value: ['salad', '蔬食', '健康'] },
               // { emoji: '🥪', name: '三明治', value: ['sandwich'] },
               // { emoji: '🍪', name: '餅乾', value: ['cookie'] },
               // { emoji: '🍩', name: '甜甜圈', value: ['doughnut'] },
@@ -80,7 +80,8 @@ export default {
               { emoji: '☕', name: '咖啡', value: ['coffee', 'coffeetime', 'coffeegram'] },
               { emoji: '🍾', name: '香檳', value: ['champagne'] },
               { emoji: '🍷', name: '紅酒', value: ['redwine'] },
-              { emoji: '🍸', name: '雞尾酒', value: ['cocktail'] },]
+              { emoji: '🍵', name: '茶', value: ['tea', '茶', '純茶', '茶飲'] },
+              { emoji: '🍸', name: '雞尾酒', value: ['cocktail', '調酒'] },]
           }]
         },
           // { emoji: '🤳', name: '自拍', value: 'selfie' },
