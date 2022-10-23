@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <transition name="slide-down">
+      <div class="copied" v-if="showCopied">
+        📄 已複製
+      </div>
+    </transition>
     <CategorySelector :data="selector" v-model="selected" />
     <div class="block">
       <div class="block-title">小精靈結果（{{result.split('#').length-1}}）</div>
@@ -21,6 +26,7 @@ export default {
   data() {
     return {
       selected: [],
+      showCopied: false,
       metro: {
         '板南線': ["頂埔", "永寧", "土城", "海山", "亞東醫院", "府中", "板橋", "新埔", "江子翠", "龍山寺", "西門", "台北車站", "善導寺", "忠孝新生", "忠孝復興", "忠孝敦化", "國父紀念館", "市政府", "永春", "後山埤", "昆陽", "南港", "南港展覽館"],
         '文湖線': ["木柵", "萬芳社區", "萬芳醫院", "辛亥", "麟光", "六張犁", "科技大樓", "大安", "忠孝復興", "南京復興", "中山國中", "松山機場", "大直", "劍南路", "西湖", "港墘", "文德", "內湖", "大湖公園", "葫洲", "東湖", "南港軟體園區", "南港展覽館"],
@@ -158,7 +164,13 @@ export default {
   },
   methods: {
     async copyResult() {
-      await navigator.clipboard.writeText(this.result)
+      try {
+        await navigator.clipboard.writeText(this.result)
+        this.showCopied = true
+        setTimeout(() => this.showCopied = false, 1500)
+      } catch (e) {
+        window.prompt('請複製以下文字', this.result)
+      }
     }
   }
 }
@@ -187,4 +199,22 @@ export default {
       background-color: rgba(0, 0, 0, 0.075)
     &:active
       background-color: rgba(0, 0, 0, 0.1)
+.copied
+  position: fixed
+  top: 16px
+  left: 0
+  right: 0
+  margin: auto
+  display: inline-block
+  width: 120px
+  background-color: #fff
+  text-align: center
+  padding: 12px 0
+  box-shadow: 0 2.5px 10px rgba(0, 0, 0, 0.2)
+  border-radius: 100em
+.slide-down-enter-active, .slide-down-leave-active
+  transition: all 0.25s ease
+.slide-down-enter-from, .slide-down-leave-to
+  transform: translateY(-100%)
+  opacity: 0
 </style>
