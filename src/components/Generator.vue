@@ -31,6 +31,17 @@ export default {
       }
     }
   },
+  mounted() {
+    this.selected = JSON.parse(localStorage.getItem('selected')) || []
+  },
+  watch: {
+    selected: {
+      handler: function (newVal, oldVal) {
+        localStorage.setItem('selected', JSON.stringify(newVal))
+      },
+      deep: true
+    }
+  },
   computed: {
     selector() {
       let result = [{
