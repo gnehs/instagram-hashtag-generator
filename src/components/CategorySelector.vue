@@ -47,8 +47,21 @@ export default {
   },
   methods: {
     toggleTag(tag) {
+      tag = structuredClone(tag)
       if (this.value.includes(tag.value[0])) {
-        this.value = this.value.filter(x => !tag.value.includes(x))
+        let res = this.value
+        res = res.filter(x => !tag.value.includes(x))
+        // clear children
+        function removeChildren(tag) {
+          if (tag.children) {
+            for (let child of tag.children) {
+              res = res.filter(x => !child.options.map(y => y.value).flat(2).includes(x))
+              removeChildren(child)
+            }
+          }
+        }
+        removeChildren(tag)
+        this.value = res
       } else {
         this.value = [...this.value, ...tag.value]
       }
