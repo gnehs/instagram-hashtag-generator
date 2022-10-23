@@ -51,7 +51,7 @@ export default {
             question: '是哪種食物？',
             options: [
               { emoji: '🍣', name: '壽司', value: ['sushi', '壽司'] },
-              { emoji: '🥞', name: '鬆餅', value: ['pancake', '蓬蓬鬆餅', '鬆餅', 'パンケーキ', 'pancakes'] },
+              { emoji: '🥞', name: '鬆餅', value: ['pancake', '蓬蓬鬆餅', '鬆餅', 'パンケーキ', 'pancakes', 'teampancake', 'pancakeday'] },
               { emoji: '🍜', name: '拉麵', value: ['ramen', '拉麵', '拉麺', 'noodles', 'ラーメン', 'ramennoodles', 'soup'] },
               { emoji: '🍕', name: '披薩', value: ['pizza', 'pizzagram', 'pizzeria'] },
               // { emoji: '🍔', name: '漢堡', value: ['burger'] },
