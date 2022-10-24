@@ -23,7 +23,6 @@ export default [{
             options: [
               { name: '二郎', value: ['二郎'] },
               { name: '泡系', value: ['泡系'] },
-              { name: '叉燒', value: ['叉燒', 'チャーシュー'] },
               { name: '沾醬', value: ['沾醬', 'つけめん'] },
               { name: '味噌', value: ['味噌', 'みそラーメン'] },
               { name: '醬油', value: ['醬油', '醤油', '醤油ラーメン'] },
@@ -32,14 +31,11 @@ export default [{
               { emoji: '🐷', name: '豚骨', value: ['豚骨', '豚骨ラーメン'] },
               { emoji: '🐟', name: '魚介', value: ['魚介', '魚介ラーメン'] },
               { emoji: '🐟', name: '煮干', value: ['煮干', '煮干ラーメン'] },
-              { emoji: '🍙', name: '海苔', value: ['海苔', 'のり'] },
               { emoji: '🐔', name: '雞白湯', value: ['雞白湯', '鶏白湯', '鶏白湯ラーメン'] },
-              { emoji: '🥚', name: '溏心蛋', value: ['味玉'] },
-              { emoji: '🥚', name: '生蛋', value: ['月見'] },
-              { emoji: '🥚', name: '溫泉蛋', value: ['温泉卵'] },
             ]
           }]
         },
+        { emoji: '🍲', name: '火鍋', value: ['火鍋', 'hotpot', 'hotpot🍲'] },
         { emoji: '🍣', name: '壽司', value: ['sushi', '壽司'] },
         { emoji: '🥞', name: '鬆餅', value: ['Pancake', '蓬蓬鬆餅', '鬆餅', 'パンケーキ', 'Pancakes', 'TeamPancake', 'PancakeDay'] },
         { emoji: '🍕', name: '披薩', value: ['pizza', 'pizzagram', 'pizzeria'] },
@@ -54,6 +50,17 @@ export default [{
         // { emoji: '🍩', name: '甜甜圈', value: ['doughnut'] },
         // { emoji: '🧁', name: '蛋糕', value: ['cake'] },
         // { emoji: '🍿', name: '爆米花', value: ['popcorn'] },
+      ]
+    }, {
+      question: '食材',
+      options: [
+        { name: '干貝', value: ['干貝'] },
+        { name: '叉燒', value: ['叉燒', 'チャーシュー'] },
+        { emoji: '🧅', name: '洋蔥', value: ['洋蔥'] },
+        { emoji: '🍙', name: '海苔', value: ['海苔', 'のり'] },
+        { emoji: '🥚', name: '溏心蛋', value: ['味玉'] },
+        { emoji: '🥚', name: '生蛋', value: ['月見'] },
+        { emoji: '🥚', name: '溫泉蛋', value: ['温泉卵'] },
       ]
     }]
   }, {
