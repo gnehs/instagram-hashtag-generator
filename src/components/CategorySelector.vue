@@ -93,7 +93,7 @@ export default {
     &:hover
       border: 1px solid #ccc
     &.selected
-      background: rgba(var(--main-color), 0.1)
+      background: rgba(var(--main-color), 0.15)
       border: 1px solid rgb(var(--main-color))
     .icon
       display: flex
