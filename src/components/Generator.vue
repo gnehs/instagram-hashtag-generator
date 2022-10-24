@@ -8,10 +8,10 @@
     <transition-group name="flip-list" style="position: relative" tag="div">
       <CategorySelector :data="selector" v-model="selected" />
       <div class="block">
-        <div class="block-title">小精靈結果（{{ result.split('#').length - 1 }}）</div>
-        <p class="result">
-          {{ result }}
-        </p>
+        <div class="block-title">小精靈結果（{{ result.length }}）</div>
+        <transition-group name="list" style="position: relative" tag="div">
+          <div class="generated-tag" v-for="tag of result" :key="tag">#{{ tag }}</div>
+        </transition-group>
         <div class="copy-btn" @click="copyResult">
           複製
         </div>
@@ -172,17 +172,18 @@ export default {
       }
       tags = [...new Set(tags.flat(1))].filter(x => x != '').slice(0, 30).sort()
 
-      return '#' + tags.join(' #')
+      return tags
     }
   },
   methods: {
     async copyResult() {
       try {
-        await navigator.clipboard.writeText(this.result)
+        let res = '#' + this.result.join(' #')
+        await navigator.clipboard.writeText(res)
         this.showCopied = true
         setTimeout(() => this.showCopied = false, 1500)
       } catch (e) {
-        window.prompt('請複製以下文字', this.result)
+        window.prompt('請複製以下文字', res)
       }
     }
   }
@@ -198,10 +199,17 @@ export default {
   .block-title
     font-weight: bold
     margin-bottom: 8px
-  .result
+  .generated-tag
+    display: inline-block
+    border: 1px solid rgba(var(--text-color), 0.1)
     line-height: 1.5
+    margin-right: 4px
+    margin-bottom: 8px
+    padding: 4px 8px
+    border-radius: 4px
   .copy-btn
     text-align: center
+    margin-top: 8px
     border-radius: 5px
     padding: 5px 10px
     background-color: rgba(var(--text-color), 0.05)
