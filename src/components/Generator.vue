@@ -9,9 +9,7 @@
       <CategorySelector :data="selector" v-model="selected" />
       <div class="block">
         <div class="block-title">小精靈結果（{{ result.length }}）</div>
-        <transition-group name="list" style="position: relative;overflow: hidden;" tag="div">
-          <div class="generated-tag" v-for="tag of result" :key="tag">#{{ tag }}</div>
-        </transition-group>
+        <div class="generated-tag" v-for="tag of result" :key="tag">#{{ tag }}</div>
         <div class="copy-btn" @click="copyResult">
           複製
         </div>
@@ -196,6 +194,7 @@ export default {
   padding: 16px
   margin: 8px 0
   background-color: rgb(var(--layer-2))
+  overflow: hidden
   .block-title
     font-weight: bold
     margin-bottom: 8px
