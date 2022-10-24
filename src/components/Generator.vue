@@ -202,10 +202,10 @@ export default {
     display: inline-block
     border: 1px solid rgba(var(--text-color), 0.1)
     line-height: 1.5
-    margin-right: 4px
+    margin-right: 8px
     margin-bottom: 8px
-    padding: 4px 8px
-    border-radius: 4px
+    padding: 4px 12px
+    border-radius: 100em
   .copy-btn
     text-align: center
     margin-top: 8px
