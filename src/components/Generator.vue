@@ -127,14 +127,37 @@ export default {
               { emoji: '🍵', name: '茶', value: ['tea', 'greentea', 'teadrink', '茶', '純茶', '茶飲'] },
               { emoji: '🍸', name: '雞尾酒', value: ['cocktail', '調酒'] },]
           }]
-        },
-        {
+        }, {
           emoji: '🦭', name: '動物', value: ['animal', 'animals', 'animalphotography'],
           children: [{
             question: '是什麼動物？',
             options: [
               { emoji: '🐈', name: '貓咪', value: ['catmeow', 'catlove', 'cats', 'cat', 'meow', 'cutecat', 'kitty', 'catlover', 'cutecat', '貓', '貓咪日常'] },
               { emoji: '🐶', name: '狗勾', value: ['dogphotography', 'dogs', 'doglife', 'doglove', 'dog', 'happydog', 'cutedog', 'doggo', 'happycat', '狗'] },
+              { emoji: '🦘', name: '袋鼠', value: ['kangaroo', 'kangarooisland', 'kangaroos'] },
+              { emoji: '🐨', name: '無尾熊', value: ['koala', 'babykoala'] },
+              // { emoji: '🦁', name: '獅子', value: ['lion'] },
+              // { emoji: '🐘', name: '大象', value: ['elephant'] },
+              // { emoji: '🐯', name: '老虎', value: ['tiger'] },
+              // { emoji: '🐼', name: '熊貓', value: ['panda'] },
+              // { emoji: '🐵', name: '猴子', value: ['monkey'] },
+              // { emoji: '🐮', name: '牛', value: ['cow'] },
+              // { emoji: '🐷', name: '豬', value: ['pig'] },
+              // { emoji: '🐸', name: '青蛙', value: ['frog'] },
+              // { emoji: '🐔', name: '雞', value: ['chicken'] },
+              // { emoji: '🐧', name: '企鵝', value: ['penguin'] },
+              // { emoji: '🐦', name: '鳥', value: ['bird'] },
+              // { emoji: '🦆', name: '鴨子', value: ['duck'] },
+              // { emoji: '🐺', name: '狼', value: ['wolf'] },
+              // { emoji: '🐝', name: '蜜蜂', value: ['bee'] },
+              // { emoji: '🐛', name: '蟲', value: ['bug'] },
+              // { emoji: '🐌', name: '蝸牛', value: ['snail'] },
+            ]
+          },
+          {
+            question: '拍攝地點是？',
+            options: [
+              { emoji: '🎟', name: '動物園', value: ['zoo', 'zooanimal', 'zooanimals', 'zootography', '動物園'] },
             ]
           }]
         },
