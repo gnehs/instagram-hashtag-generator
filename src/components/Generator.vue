@@ -62,10 +62,11 @@ export default {
           children: [{
             question: '是哪一餐？',
             options: [
-              { emoji: '🌅', name: '早餐', value: ['breakfast', '早餐', '早午餐'] },
-              { emoji: '🌇', name: '午餐', value: ['lunch', '午餐', 'ランチ'] },
-              { emoji: '🌃', name: '晚餐', value: ['dinner', '晚餐'] },
-              { emoji: '🌃', name: '宵夜', value: ['宵夜', '夜食'] },
+              { name: '早餐', value: ['breakfast', '早餐', 'breakfastideas', 'breakfasttime', 'breakfastlover'] },
+              { name: '早午餐', value: ['Brunch', '早午餐', 'brunchtime', 'brunching'] },
+              { name: '午餐', value: ['lunch', '午餐', 'ランチ', 'lunchtime'] },
+              { name: '晚餐', value: ['dinner', '晚餐'] },
+              { name: '宵夜', value: ['宵夜', '夜食'] },
             ]
           }, {
             question: '是哪種食物？',
@@ -127,9 +128,18 @@ export default {
               { emoji: '🍸', name: '雞尾酒', value: ['cocktail', '調酒'] },]
           }]
         },
+        {
+          emoji: '🦭', name: '動物', value: ['animal', 'animals', 'animalphotography'],
+          children: [{
+            question: '是什麼動物？',
+            options: [
+              { emoji: '🐈', name: '貓咪', value: ['catmeow', 'catlove', 'cats', 'cat', 'meow', 'cutecat', 'kitty', 'catlover', 'cutecat', '貓', '貓咪日常'] },
+              { emoji: '🐶', name: '狗勾', value: ['dogphotography', 'dogs', 'doglife', 'doglove', 'dog', 'happydog', 'cutedog', 'doggo', 'happycat', '狗'] },
+            ]
+          }]
+        },
           // { emoji: '🤳', name: '自拍', value: 'selfie' },
           // { emoji: '🌅', name: '風景', value: 'landscape' },
-          // { emoji: '🦭', name: '動物', value: 'animal' },
           // { emoji: '🏢', name: '建築', value: 'architecture' },
         ],
       }]
