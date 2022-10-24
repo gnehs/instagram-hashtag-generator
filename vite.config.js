@@ -10,8 +10,8 @@ export default defineConfig({
       includeAssets: ['icon.svg'],
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Instagram 標籤產生器',
-        short_name: 'Instagram 標籤產生器',
+        name: 'Instagram 標籤小精靈',
+        short_name: 'Instagram 標籤小精靈',
         description: '讓小精靈自動推薦給你適合的標籤',
         theme_color: '#f2f2f2',
         icons: [
@@ -43,5 +43,8 @@ export default defineConfig({
         lang: 'zh-TW',
       },
     })
-  ]
+  ],
+  alias: {
+    '@': '/src'
+  }
 })
