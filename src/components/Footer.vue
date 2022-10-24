@@ -9,7 +9,7 @@ footer
   margin: 2em auto
   text-align: center
   a
-    color: #86639c
+    color: rgb(var(--main-color))
     text-decoration: none
     &:hover
       text-decoration: underline

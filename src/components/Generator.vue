@@ -8,9 +8,9 @@
     <transition-group name="flip-list" style="position: relative" tag="div">
       <CategorySelector :data="selector" v-model="selected" />
       <div class="block">
-        <div class="block-title">小精靈結果（{{result.split('#').length-1}}）</div>
+        <div class="block-title">小精靈結果（{{ result.split('#').length - 1 }}）</div>
         <p class="result">
-          {{result}}
+          {{ result }}
         </p>
         <div class="copy-btn" @click="copyResult">
           複製
@@ -194,7 +194,7 @@ export default {
   border-radius: 8px
   padding: 16px
   margin: 8px 0
-  background-color: #fff
+  background-color: rgb(var(--layer-2))
   .block-title
     font-weight: bold
     margin-bottom: 8px
@@ -204,14 +204,14 @@ export default {
     text-align: center
     border-radius: 5px
     padding: 5px 10px
-    background-color: rgba(0, 0, 0, 0.05)
+    background-color: rgba(var(--text-color), 0.05)
     cursor: pointer
     border: 1px solid transparent
     &:hover
-      border: 1px solid rgba(0, 0, 0, 0.05)
-      background-color: rgba(0, 0, 0, 0.075)
+      border: 1px solid rgba(var(--text-color), 0.05)
+      background-color: rgba(var(--text-color), 0.075)
     &:active
-      background-color: rgba(0, 0, 0, 0.1)
+      background-color: rgba(var(--text-color), 0.1)
 .copied
   position: fixed
   top: 8px
@@ -220,7 +220,7 @@ export default {
   margin: auto
   display: inline-block
   width: 120px
-  background-color: rgba(255,255,255,0.9)
+  background-color: rgba(var(--layer-2),0.9)
   backdrop-filter: blur(10px)
   -webkit-backdrop-filter: blur(10px)
   text-align: center

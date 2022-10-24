@@ -2,23 +2,23 @@
   <transition-group name="flip-list" style="position: relative" tag="div">
     <template v-for="item of data" :key="item.question">
       <div class="block">
-        <div class="block-title">{{item.question}} </div>
+        <div class="block-title">{{ item.question }} </div>
         <div class="tags">
           <div
             class="tag"
             v-for="tag of item.options"
             :key="tag.name"
             @click="toggleTag(tag)"
-            :class="{selected: tag.value.some(x=>value.includes(x))}">
+            :class="{ selected: tag.value.some(x => value.includes(x)) }">
             <div class="icon" v-if="tag.emoji">
-              <span>{{tag.emoji}}</span>
+              <span>{{ tag.emoji }}</span>
             </div>
-            {{tag.name}}
+            {{ tag.name }}
           </div>
         </div>
       </div>
-      <template v-for="tag of item.options.filter(x=>x.children)" :key="tag.name">
-        <CategorySelector v-if="tag.value.some(x=>value.includes(x))" :data="tag.children" v-model="value" />
+      <template v-for="tag of item.options.filter(x => x.children)" :key="tag.name">
+        <CategorySelector v-if="tag.value.some(x => value.includes(x))" :data="tag.children" v-model="value" />
       </template>
     </template>
   </transition-group>
@@ -84,7 +84,7 @@ export default {
   .tag
     display: flex
     align-items: center
-    background: rgba(0, 0, 0, 0.05)
+    background: rgba(var(--text-color), 0.05)
     border-radius: 5px
     padding: 5px 7.5px
     cursor: pointer
@@ -93,8 +93,8 @@ export default {
     &:hover
       border: 1px solid #ccc
     &.selected
-      background: rgba(120, 117, 157, 0.1)
-      border: 1px solid #86639b
+      background: rgba(var(--main-color), 0.1)
+      border: 1px solid rgb(var(--main-color))
     .icon
       display: flex
       align-items: center
